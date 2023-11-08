@@ -22,6 +22,7 @@ dependencies {
 
     implementation("io.qameta.allure:allure-rest-assured:$allureVersion")
     testImplementation("io.qameta.allure:allure-testng:$allureVersion")
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.15.3")
 
     testImplementation("org.slf4j:slf4j-simple:2.0.9")
     implementation("com.typesafe:config:1.4.2")
