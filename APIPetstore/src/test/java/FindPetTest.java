@@ -9,14 +9,14 @@ public class FindPetTest extends BaseTest {
     @Test(description = "поиск питомца по id")
     public void findPetById() {
         given().when()
-                .get(baseURI + "pet/{id}", 2)
+                .get(baseURI + "pet/{id}", 50)
                 .then()
                 .log().all()
                 .time(lessThan(2000L))
                 .statusCode(200)
                 .statusLine("HTTP/1.1 200 OK")
                 .contentType("application/json")
-                .body("id", equalTo(2))
+                .body("id", equalTo(50))
                 .body("name", notNullValue());
     }
 

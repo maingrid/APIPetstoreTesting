@@ -75,5 +75,26 @@ public class AddNewPetTest extends BaseTest {
                 .statusCode(405)
                 .statusLine("HTTP/1.1 405 Method Not Allowed");
     }
-    //TODO сделать проверку на добавление со статусом unknown
+
+    @Test(description = "добавление питомца со статусом unknown")
+    public void addNewPetWithUncorrectableStatus() {
+        Integer id = 110;
+        String name = "Arti";
+        String status = "unknown";
+
+        Map<String, String> request = new HashMap<>();
+        request.put("id", id.toString());
+        request.put("name", name);
+        request.put("status", status);
+
+        given().contentType("application/json")
+                .body(request)
+                .when()
+                .post(baseURI + "pet/")
+                .then()
+                .log().all()
+                .time(lessThan(2000L))
+                .statusCode(405)
+                .statusLine("HTTP/1.1 405 Method Not Allowed");
+    }
 }

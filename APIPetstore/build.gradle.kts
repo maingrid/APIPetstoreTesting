@@ -26,6 +26,7 @@ dependencies {
 
     testImplementation("org.slf4j:slf4j-simple:2.0.9")
     implementation("com.typesafe:config:1.4.2")
+    testImplementation("junit:junit:4.13.1")
 }
 
 tasks.test {
