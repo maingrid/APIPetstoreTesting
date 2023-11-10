@@ -1,8 +1,11 @@
+package validationsPetTest;
+
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
+import BaseTest.BaseTest;
 
 public class FindPetTest extends BaseTest {
 

@@ -1,3 +1,5 @@
+package validationsPetTest;
+
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
@@ -6,8 +8,9 @@ import java.util.Map;
 import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
+import BaseTest.BaseTest;
 
-public class UpdatePetTest extends BaseTest{
+public class UpdatePetTest extends BaseTest {
 
     @Test(description = "изменение имени питомца который был добавлен")
     public void updateExistPetName() {
@@ -69,7 +72,7 @@ public class UpdatePetTest extends BaseTest{
                 .log().all()
                 .time(lessThan(2000L))
                 .statusCode(405)
-                .statusLine("HTTP/1.1 405 Method not allowed");
+                .statusLine("HTTP/1.1 405 Method Not Allowed");
     }
 
 }

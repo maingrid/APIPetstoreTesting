@@ -1,3 +1,6 @@
+package validationsPetTest;
+
+
 import org.testng.annotations.Test;
 
 import java.util.HashMap;
@@ -6,6 +9,7 @@ import java.util.Map;
 import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
+import BaseTest.BaseTest;
 
 public class AddNewPetTest extends BaseTest {
 
