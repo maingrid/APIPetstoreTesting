@@ -8,7 +8,7 @@ import BaseTest.BaseTest;
 
 public class DeletePetTest extends BaseTest {
 
-    @Test(description = "Удаление существующего питомца")
+    @Test(description = "Removing an existing pet")
     public void delExistPet() {
         Integer id = 100;
         given().when()
@@ -23,7 +23,7 @@ public class DeletePetTest extends BaseTest {
                 .body("message", equalTo("100"));
     }
 
-    @Test(description = "удаление несуществующего питомца")
+    @Test(description = "deleting a non-existent pet")
     public void delNonExistPet() {
         given().when()
                 .delete(baseURI + "pet/")
@@ -34,7 +34,7 @@ public class DeletePetTest extends BaseTest {
                 .statusLine("HTTP/1.1 405 Method Not Allowed");
     }
 
-    @Test(description = "удаление питомца передавая некоректный id")
+    @Test(description = "deleting a pet by passing an incorrect id")
     public void delPetWithUncorrectableId() {
         given().when()
                 .delete(baseURI + "pet/{id}", "test")

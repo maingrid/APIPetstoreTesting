@@ -3,6 +3,8 @@ package userScenarioTest;
 import BaseTest.BaseTest;
 import java.util.HashMap;
 import java.util.Map;
+
+import io.qameta.allure.Step;
 import org.testng.annotations.Test;
 import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.given;
@@ -14,7 +16,8 @@ public class ScenarioAddNewPetAndChangeName extends BaseTest {
     private final String status = "Available";
     private final String changeName = "Ghost Busters";
 
-    @Test(description = "добавление нового питомца с корректными данными", priority = 1)
+    @Step("adding a new pet to the system")
+    @Test(description = "add new pet with correctable values", priority = 1)
     public void addNewPetWithCorrectableValues() {
         Map<String,String> request = new HashMap<>();
         request.put("id", id.toString());
@@ -33,8 +36,8 @@ public class ScenarioAddNewPetAndChangeName extends BaseTest {
                 .body("name",equalTo(name))
                 .body("status", equalTo(status));
     }
-
-    @Test(description = "просмотр питомца после добавления", priority = 2)
+    @Step("find a pet by its id")
+    @Test(description = "viewing pet after added", priority = 2)
     public void viewingPetAfterAdded() {
         given().when()
                 .get(baseURI + "pet/{id}", id)
@@ -48,8 +51,8 @@ public class ScenarioAddNewPetAndChangeName extends BaseTest {
                 .body("name", equalTo(name))
                 .body("status", equalTo(status));
     }
-
-    @Test(description = "изменение имени у добавленого питомца", priority = 3)
+    @Step("find the pet by id and change its name")
+    @Test(description = "changed name at the added pet", priority = 3)
     public void changeNameAtAddedPet() {
         Map<String,String> request = new HashMap<>();
         request.put("id", id.toString());
@@ -68,8 +71,8 @@ public class ScenarioAddNewPetAndChangeName extends BaseTest {
                 .body("name",equalTo(changeName))
                 .body("status", equalTo(status));
     }
-
-    @Test(description = "просмотр питомца после изменения имени", priority = 4)
+    @Step("find the pet and check that the name has changed")
+    @Test(description = "viewing pet after changed name", priority = 4)
     public void viewingPetAfterChangedName() {
         given().when()
                 .get(baseURI + "pet/{id}", id)

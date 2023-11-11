@@ -12,7 +12,7 @@ import BaseTest.BaseTest;
 
 public class UpdatePetTest extends BaseTest {
 
-    @Test(description = "изменение имени питомца который был добавлен")
+    @Test(description = "changing the name of the pet that was added")
     public void updateExistPetName() {
         Integer id = 50;
         String changeName = "Luna";
@@ -34,7 +34,7 @@ public class UpdatePetTest extends BaseTest {
                 .body("name", equalTo(changeName));
     }
 
-    @Test(description = "изменение имени питомца который не существует")
+    @Test(description = "changing the name of a pet that doesn't exist")
     public void updateNonExistPetName() {
         Integer id = 234823482;
         String changeName = "null";
@@ -57,7 +57,7 @@ public class UpdatePetTest extends BaseTest {
                 .body("type", equalTo("error"));
     }
 
-    @Test(description = "изменение питомца не передавая имя")
+    @Test(description = "changing the pet without transferring the name")
     public void updatePetWithoutName() {
         Integer id = 50;
 

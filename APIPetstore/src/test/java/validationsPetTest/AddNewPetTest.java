@@ -13,7 +13,7 @@ import BaseTest.BaseTest;
 
 public class AddNewPetTest extends BaseTest {
 
-    @Test(description = "добавление нового питомца с корректными данными")
+    @Test(description = "add new pet with correctable values")
     public void addNewPetWithCorrectValues() {
         Integer id = 100;
         String name = "Demon";
@@ -39,7 +39,7 @@ public class AddNewPetTest extends BaseTest {
 
     }
 
-    @Test(description = "добавление нового питомца с именем состоящим из цифр")
+    @Test(description = "adding a new pet with a name consisting of numbers")
     public void addNewPetWithUncorrectableName() {
         Integer id = 101;
         Integer name = 101;
@@ -60,7 +60,7 @@ public class AddNewPetTest extends BaseTest {
 
     }
 
-    @Test(description = "добавление нового питомца с id состоящим из строки")
+    @Test(description = "adding a new pet with an id consisting of a string")
     public void addNewPetWithUncorrectableId() {
         String id = "102";
         String name = "Lunom";
@@ -80,7 +80,7 @@ public class AddNewPetTest extends BaseTest {
                 .statusLine("HTTP/1.1 405 Method Not Allowed");
     }
 
-    @Test(description = "добавление питомца со статусом unknown")
+    @Test(description = "adding a pet with unknown status")
     public void addNewPetWithUncorrectableStatus() {
         Integer id = 110;
         String name = "Arti";

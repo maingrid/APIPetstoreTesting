@@ -9,7 +9,7 @@ import BaseTest.BaseTest;
 
 public class FindPetTest extends BaseTest {
 
-    @Test(description = "поиск питомца по id")
+    @Test(description = "search for pet by id")
     public void findPetById() {
         given().when()
                 .get(baseURI + "pet/{id}", 50)
@@ -24,7 +24,7 @@ public class FindPetTest extends BaseTest {
     }
 
 
-    @Test(description = "поиск питомца по несуществующему id")
+    @Test(description = "search for a pet by non-existent id")
     public void findPetByExistenceId() {
         given().when()
                 .get(baseURI + "pet/{id}", 43563453)
@@ -40,7 +40,7 @@ public class FindPetTest extends BaseTest {
     }
 
 
-    @Test(description = "поиск питомца по некорректному id")
+    @Test(description = "search for a pet by incorrect id")
     public void findPetByUncorrectableId() {
         given().when()
                 .get(baseURI + "pet/{id}", "abc")

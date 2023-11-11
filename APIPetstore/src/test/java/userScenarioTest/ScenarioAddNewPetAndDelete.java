@@ -18,8 +18,8 @@ public class ScenarioAddNewPetAndDelete extends BaseTest {
     private final String name = "Eagle";
     private final String status = "Available";
 
-    @Step
-    @Test(description = "добавление нового питомца с корректными данными", priority = 1)
+    @Step("adding a new pet to the system")
+    @Test(description = "add new pet with correctable values", priority = 1)
     public void addNewPetWithCorrectableValues() {
         Map<String,String> request = new HashMap<>();
         request.put("id", id.toString());
@@ -38,8 +38,8 @@ public class ScenarioAddNewPetAndDelete extends BaseTest {
                 .body("name",equalTo(name))
                 .body("status", equalTo(status));
     }
-    @Step
-    @Test(description = "просмотр питомца после добавления", priority = 2)
+    @Step("find a pet by its id")
+    @Test(description = "viewing pet after added", priority = 2)
     public void viewingPetAfterAdded() {
         given().when()
                 .get(baseURI + "pet/{id}", id)
@@ -53,8 +53,8 @@ public class ScenarioAddNewPetAndDelete extends BaseTest {
                 .body("name", equalTo(name))
                 .body("status", equalTo(status));
     }
-    @Step
-    @Test(description = "Удаление существующего питомца", priority = 3)
+    @Step("deleting the newly created pet")
+    @Test(description = "delete exist pet", priority = 3)
     public void delExistPet() {
         given().when()
                 .delete(baseURI + "pet/{id}",id)
@@ -67,8 +67,8 @@ public class ScenarioAddNewPetAndDelete extends BaseTest {
                 .body("type", equalTo("unknown"))
                 .body("message", equalTo(id.toString()));
     }
-    @Step
-    @Test(description = "поиск питомца после удаления", priority = 4)
+    @Step("check that the pet has been deleted")
+    @Test(description = "search pet after delete", priority = 4)
     public void findPetByExistenceId() {
         given().when()
                 .get(baseURI + "pet/{id}", id)
